@@ -196,7 +196,7 @@ class Cacher {
 			return obj.map(o => this._generateKeyFromObject(o)).join("|");
 		}
 		else if (_.isObject(obj)) {
-			return Object.keys(obj).concat(Object.getOwnPropertySymbols(obj)).map(key => [key.toString(), this._generateKeyFromObject(obj[key])].join("|")).join("|");
+			return Object.keys(obj).map(key => [key, this._generateKeyFromObject(obj[key])].join("|")).join("|");
 		}
 		else if (obj != null) {
 			return obj.toString();
